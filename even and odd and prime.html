@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorpicker</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id='root'></div>
+
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script type="text/babel">
+
+function range(start, end) {
+    return Array(end - start + 1).fill().map((_, idx) => start + idx)
+}
+        
+var result = range(0, 31);
+console.log(result);
+
+var myarr = range(0, 31);
+
+function isEven(value) {
+    if (value % 2 == 0 && value != 2)
+        return true;
+    else
+        return false;
+}
+
+function isPrime(num) {
+    for (var i = 2; i < num; i++)
+        if (num % i === 0) return false;
+    return num > 1;
+}
+
+function isTwo(num) {
+
+    if (num == 2) return true
+}
+
+
+
+let arr = myarr.map((num) => {
+    if (isTwo(num)) {return "yellow";} else if (isEven(num)) 
+    { return "red";} else if (isPrime(num))
+     {return "yellow";} else {
+         return "green";
+     }
+}
+);
+
+   
+    class SquareBlock extends React.Component {
+  render() {
+    var blockStyle = {
+          
+          margin: "7px",
+          backgroundColor: this.props.bgColor,
+          color: "#333",
+          borderRadius: "30%",
+          fontFamily: "monospace",
+          fontSize: 32,
+          textAlign: "center",
+          color:"white",
+          width: "100px",
+          height:"100px",
+          maxWidth: "100px",
+          minWidth: "100px",
+          
+      };
+      var text = this.props.text;
+    return  (<div style={blockStyle} className="col" >
+      {text}
+    </div>)
+  }
+}  
+    
+console.log(arr); 
+let renderData = arr.map((num, i, arr) => (<SquareBlock key={num} bgColor={num} text={i} className = 'col'/>))
+
+
+
+console.log(renderData)
+ 
+    
+    class BigBlock extends React.Component {
+  render() {
+     
+
+      return(
+          
+            <div className="container" id="Cont">
+                <Block />
+               
+            
+            </div>
+
+   
+          
+      );
+  }
+}
+class Block extends React.Component {
+  render() {
+     
+
+      return(
+          
+            <div className="row" >
+                
+               {renderData}
+                
+                
+              
+           
+            
+            
+            </div>
+
+   
+          
+      );
+  }
+}
+
+
+
+
+
+const rootElement = document.getElementById('root')
+// we render the App component using the ReactDOM package
+ReactDOM.render(<BigBlock />, rootElement)
+</script>
+</body>
+
+</html>
