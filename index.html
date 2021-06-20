@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odd Even Prime</title>
     <link rel="stylesheet" href="styles2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style type="text/css">
@@ -16,14 +18,21 @@
             height:99vh;
         background-image: linear-gradient(
             to top,
-            rgba(189, 165, 165, 0.5),
-            rgba(245, 229, 229, 0.5)
+            rgba(231, 223, 223, 0.5),
+            rgba(255, 254, 254, 0.5)
           ),
           url("https://wallpaperaccess.com/thumb/497913.jpg");
+          font-family: 'Dancing Script', cursive;
+          color:rgb(47, 13, 78);
         background-size: cover;
         width: 100%;
        
-      }</style>
+      }
+      #header{
+          font-weight:2.8rem
+      }
+      
+      </style>
 </head>
 
 <body>
@@ -115,7 +124,7 @@ console.log(renderData)
       return(
           
             <div className="container" id="Cont">
-            <h1 style={{textAlign:'center', margin: '30px 5px'}}> Odd, Even and Prime by Colors </h1>
+            <h1 id="header" style={{textAlign:'center', margin: '30px 5px', fontSize:'3.3rem'}}> Odd, Even and Prime by Colors </h1>
                 <Block />
                
             
