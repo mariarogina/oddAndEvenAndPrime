@@ -33,9 +33,19 @@
       }
         
         @media only screen and (max-width: 600px) {
-  body {
+            #root {
     background-color: lightblue;
-       height:99vh;
+       height:100%;
+       background-image:none;
+       display:flex;
+       flex-wrap: wrap;
+  }
+
+  #block {
+    width: "80px";
+          height:"80px";
+          max-width: "80px";
+          min-width: "80px"
   }
 }
       
@@ -110,7 +120,7 @@ let arr = myarr.map((num) => {
           
       };
       var text = this.props.text;
-    return  (<div style={blockStyle} className="col" >
+    return  (<div id = "block" style={blockStyle} className="col" >
       {text}
     </div>)
   }
